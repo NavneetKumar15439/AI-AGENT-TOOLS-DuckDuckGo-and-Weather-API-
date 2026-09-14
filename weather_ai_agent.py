@@ -84,7 +84,7 @@ def get_weather(city: str) -> str:
     }
 
 
-    response = requests.get(url)
+    response = requests.get(url, params = params)
 
     return response.json()
 
@@ -99,7 +99,7 @@ agent2 = create_agent(
     tools = [search_tool, get_weather]
 )
 
-response = agent.invoke({
+response = agent2.invoke({
     "messages": [
         {"role": "user", "content": "which is the milleniuym city of India. Whats its current weather condition"}
     ]
